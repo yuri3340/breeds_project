@@ -16,13 +16,21 @@ interface DogListProps {
 
 export default function DogList({ breeds }: DogListProps) {
     return (
-        <div className="flex gap-2 flex-wrap max-w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {breeds.map((breed) => (
-                <div key={breed.id} className="border-white border-2 p-2 box-border hover:bg-orange-500 cursor-poi">
-                    <Link href={`/breeds/${breed.id}`}>
+                <Link
+                    key={breed.id}
+                    href={`/breeds/${breed.id}`}
+                    className="block p-5 bg-white rounded-lg shadow hover:shadow-lg hover:bg-blue-50 transition duration-200 border border-gray-200"
+                >
+                    <h3 className="text-lg font-semibold text-blue-700 mb-1">
                         {breed.name}
-                    </Link>
-                </div>
+                    </h3>
+                    <p className="text-sm text-gray-600 line-clamp-2">{breed.description}</p>
+                    <p className="text-xs text-gray-400 mt-2">
+                        🧬 Life span: {breed.life.min} – {breed.life.max} years
+                    </p>
+                </Link>
             ))}
         </div>
     );

@@ -4,7 +4,7 @@ import { BreedsProvider } from './BreedsContext';
 
 async function getBreeds() {
 
-  const res = await axios.get("https://nwabcijafvtjioyuexji.supabase.co/functions/v1/get-dog-breeds");
+  const res = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/dog-breeds`);
   return res.data;
 }
 
@@ -13,7 +13,7 @@ const BreedsLayout = async ({children}: {children: React.ReactNode}) => {
 
   return (
     <BreedsProvider breeds={breeds}>
-        <div>
+        <div className="min-h-screen w-full bg-gray-50 text-gray-800">
             {children}
         </div>
     </BreedsProvider>
