@@ -50,6 +50,6 @@ export function updateFavoriteBreedMemo(breeds_id: string, memo: string): Promis
 // Favorite Breed 삭제
 export function deleteFavoriteBreed(id: string) {
     return prisma.favorite_breeds.delete({
-        where: { id },
+        where: { breeds_id:id },
     });
 }

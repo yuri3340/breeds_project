@@ -1,5 +1,6 @@
-import {DogBreed, DogBreedsById} from "@/types/DogBreed";
 import axios from "axios";
+import {DogBreed, DogBreedsById} from "@/types/DogBreed";
+import * as FavoriteBreedService from "@/services/favoriteBreedService";
 
 export async function fetchAllDogBreeds(): Promise<DogBreed[]> {
     try {
@@ -39,11 +40,11 @@ export async function fetchDogBreedById(id: string): Promise<DogBreedsById> {
     try {
         const response = await axios.get(`https://dogapi.dog/api/v2/breeds/${id}`);
         const breed = response.data.data;
-        // const favorite = await FavoriteBreedService.getFavoriteByBreedId(id); // memo를 포함한 결과
+        const favorite = await FavoriteBreedService.getFavoriteByBreedId(id); // memo를 포함한 결과
 
         return {
             ...breed,
-            // memo: favorite?.memo ?? undefined,
+            memo: favorite?.memo ?? undefined,
         }
     } catch (err) {
         console.error("Fetch error:", err);
