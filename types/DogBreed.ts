@@ -1,3 +1,10 @@
+export interface FavoriteBreed {
+    id: string;
+    createdAt: string;
+    note: string;
+    breeds_id: string;
+}
+
 export interface DogBreed {
     id: string;
     name: string;

@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import * as DogBreedService from '@/services/dogBreedsService';
+import * as DogBreedService from '@/services/dogBreedService';
 import {DogBreedsById} from "@/types/DogBreed";
 
 export async function GET(_: Request, { params }: { params: { id: string } }) {
