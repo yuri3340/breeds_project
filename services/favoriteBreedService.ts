@@ -35,7 +35,6 @@ export function addFavoriteBreed(breeds_id: string, memo?: string): Promise<Favo
     return prisma.favorite_breeds.create({
         data: { breeds_id, memo },
     }) as unknown as Promise<FavoriteBreed>;
-
 }
 
 // Favorite Breed 메모 수정

@@ -32,5 +32,4 @@ export async function submitInquiry(
         success: true,
         errors: null,
     }
-
 }

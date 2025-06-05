@@ -20,10 +20,7 @@ function SubmitButton() {
 
 export default function InquiryForm() {
 
-    const [state, formAction] = useActionState<ActionResult, FormData>(
-        submitInquiry,
-        { success: false, errors: {} }
-    );
+    const [state, formAction] = useActionState<ActionResult, FormData>( submitInquiry, { success: false, errors: {} } );
 
     return (
         <form action={formAction} className="space-y-8 max-w-xl mx-auto bg-gray-50 p-6 rounded-xl text-xl">
